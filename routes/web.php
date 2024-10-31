@@ -5,17 +5,17 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('index');
+    return view('layout/index');
 });
 
 Route::get('/feedback', function () {
-    return view('feedback');
+    return view('layout/feedback');
 });
 
 Route::get('/login', function () {
-    return view('login');
+    return view('layout/login');
 });
 
 Route::get('/vote', function () {
-    return view('vote');
+    return view('layout/vote');
 });
