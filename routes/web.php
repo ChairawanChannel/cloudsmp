@@ -1,7 +1,21 @@
 <?php
 
+// routes/web.php
+
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+});
+
+Route::get('/feedback', function () {
+    return view('feedback');
+});
+
+Route::get('/login', function () {
+    return view('login');
+});
+
+Route::get('/vote', function () {
+    return view('vote');
 });
