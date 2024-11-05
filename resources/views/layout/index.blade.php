@@ -36,10 +36,10 @@
         <a href="#topup" class="nav-link"
           ><i class="fa-solid fa-circle-dollar-to-slot"></i> Topup</a
         >
-        <a href="feedback.html" class="nav-link"
+        <a href="/feedback" class="nav-link"
           ><i class="fa-solid fa-comments"></i> Feedback</a
         >
-        <a href="#vote" class="nav-link"
+        <a href="/vote" class="nav-link"
           ><i class="fa-solid fa-pen-clip"></i> Vote</a
         >
       </div>
@@ -81,7 +81,7 @@
                     ></path>
                   </svg>
                   <a
-                    href="login.html"
+                    href="/login"
                     style="
                       text-decoration: none;
                       color: black;
@@ -104,7 +104,7 @@
         <strong>Lupa Password?</strong> Silahkan Hubungi Admin Discord untuk
         mereset password anda!
         <a href="#" target="_blank"
-          >Klik disini untuk menghubungi Admin Discord</a
+          style="text-decoration: none;">Klik disini untuk menghubungi Admin Discord</a
         >
       </span>
       <button class="close-btn">&times;</button>
@@ -131,7 +131,7 @@
           <button class="discord-button">
             <i class="fa-brands fa-discord"></i>
           </button>
-          <button class="vote-button">Vote Server!</button>
+          <button class="vote-button"><a href="/vote" style="text-decoration: none;">Vote Server!</a></button>
         </div>
         <div class="onlinetxt" id="playerCount">ONLINE PLAYER: 0</div>
       </div>

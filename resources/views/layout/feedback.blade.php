@@ -8,7 +8,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
     <title>Cloud SMP - Feedback</title>
   </head>
   <body>
@@ -21,22 +21,10 @@
       </div>
       <!-- Navigation Links -->
       <div class="nav-links">
-        <a href="index.php#home" class="nav-link"
+        <a href="/#home" class="nav-link"
           ><i class="fa fa-home" aria-hidden="true"></i> Home</a
         >
-        <a href="index.php#about" class="nav-link"
-          ><i class="fas fa-book-open"></i> About</a
-        >
-        <a href="index.php#ranks" class="nav-link"
-          ><i class="fa-solid fa-coins"></i> Ranks</a
-        >
-        <a href="index.php#topup" class="nav-link"
-          ><i class="fa-solid fa-circle-dollar-to-slot"></i> Topup</a
-        >
-        <a href="feedback.php" class="nav-link"
-          ><i class="fa-solid fa-comments"></i> Feedback</a
-        >
-        <a href="#" class="nav-link"
+        <a href="/vote" class="nav-link"
           ><i class="fa-solid fa-pen-clip"></i> Vote</a
         >
       </div>

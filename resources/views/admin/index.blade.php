@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cloud SMP - Admin | Dashboard</title>
     <!-- CSS Stylesheet -->
-    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
 
     <!-- Google Fonts -->
     <link
