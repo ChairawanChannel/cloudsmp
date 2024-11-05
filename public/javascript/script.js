@@ -83,21 +83,22 @@ window.onclick = function (event) {
     document.getElementById("profileDropdown").style.display = "none";
   }
 };
-// Like button interaction
-document.querySelectorAll(".like-icon").forEach((icon) => {
-  icon.addEventListener("click", () => {
-    let count = icon.nextElementSibling;
-    let currentCount = parseInt(count.innerText);
 
-    if (icon.innerText === "❤️") {
-      icon.innerText = "🤍";
-      count.innerText = currentCount - 1;
-    } else {
-      icon.innerText = "❤️";
-      count.innerText = currentCount + 1;
-    }
-  });
-});
+// Like button interaction
+// document.querySelectorAll(".like-icon").forEach((icon) => {
+//   icon.addEventListener("click", () => {
+//     let count = icon.nextElementSibling;
+//     let currentCount = parseInt(count.innerText);
+
+//     if (icon.innerText === "❤️") {
+//       icon.innerText = "🤍";
+//       count.innerText = currentCount - 1;
+//     } else {
+//       icon.innerText = "❤️";
+//       count.innerText = currentCount + 1;
+//     }
+//   });
+// });
 
 // player count in server
 async function fetchPlayerCount() {
