@@ -10,8 +10,10 @@ Route::get('/login', function () {
     return view('users.login');
 })->name('login');
 
-Route::post('/login', [AuthController::class, 'login'])->name('login');
+
+// Rute logout dengan metode POST
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 // users route
 Route::get('/', function () {
@@ -32,9 +34,6 @@ Route::get('/feedback', function () {
 
 // admin route
 
-Route::get('admin/login', function () {
-    return view('admin/login');
-});
 Route::get('admin/', function () {
     return view('admin/index');
 });
@@ -50,6 +49,21 @@ Route::get('admin/table-transactions', function () {
 
 // owner route
 
-Route::get('owner/login', function () {
-    return view('admin/login');
+Route::get('owner/', function () {
+    return view('owner/index');
+});
+Route::get('owner/table-feedback', function () {
+    return view('owner/table-feedback');
+});
+Route::get('owner/table-vote', function () {
+    return view('owner/table-vote');
+});
+Route::get('owner/table-transactions', function () {
+    return view('owner/table-transactions');
+});
+Route::get('owner/edit_transactions', function () {
+    return view('owner/edit_transactions');
+});
+Route::get('owner/print', function () {
+    return view('owner/print');
 });

@@ -15,7 +15,7 @@ class AuthController extends Controller
             'password' => 'required|string',
         ]);
 
-        // Dapatkan pengguna dari tabel users berdasarkan gamertag
+        // Dapatkan pengguna dari tabel AuthMe berdasarkan gamertag
         $user = DB::table('users')->where('gamertag', $request->input('gamertag'))->first();
 
         if ($user) {
@@ -28,11 +28,23 @@ class AuthController extends Controller
                 // Hash password yang dimasukkan dengan salt
                 $inputPasswordHash = hash('sha256', hash('sha256', $request->input('password')) . $salt);
 
-                // Verifikasi jika hash password yang dimasukkan sama dengan hash dari database
+                // Verifikasi jika hash password yang dimasukkan sesuai dengan hash database
                 if ($inputPasswordHash === $hash) {
-                    // Login berhasil: simpan sesi
-                    Session::put('user', $user->gamertag);
-                    return redirect('/')->with('success', 'Login berhasil!');
+                    // Ambil role dari tabel user_roles berdasarkan gamertag
+                    $role = DB::table('user_roles')->where('gamertag', $user->gamertag)->value('role') ?? 'user';
+
+                    // Simpan role dan gamertag di session
+                    Session::put('role', $role);
+                    Session::put('gamertag', $user->gamertag);
+
+                    // Arahkan pengguna berdasarkan role
+                    if ($role === 'admin') {
+                        return redirect('/admin')->with('success', 'Login berhasil sebagai Admin!');
+                    } elseif ($role === 'owner') {
+                        return redirect('/owner')->with('success', 'Login berhasil sebagai Owner!');
+                    } else {
+                        return redirect('/')->with('success', 'Login berhasil sebagai User!');
+                    }
                 }
             }
         }
@@ -44,7 +56,8 @@ class AuthController extends Controller
     // Fungsi untuk logout
     public function logout()
     {
-        Session::forget('user');
+        // Hapus sesi user
+        Session::forget(['role', 'gamertag']);
         return redirect('/login')->with('success', 'Logout berhasil');
     }
 }

@@ -11,7 +11,7 @@ class EnsureUserIsAuthenticated
     public function handle(Request $request, Closure $next)
     {
         if (!Session::has('user')) {
-            return redirect('/login')->withErrors(['loginError' => 'Silahkan login terlebih dahulu.']);
+            return redirect('/login')->withErrors(['loginError']);
         }
 
         return $next($request);
