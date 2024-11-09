@@ -1,69 +1,72 @@
 <?php
 
-// routes/web.php
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\VoteController;
+use App\Http\Middleware\AdminMiddleware;
+use App\Http\Middleware\OwnerMiddleware;
 use App\Http\Middleware\EnsureUserIsAuthenticated;
 
+// Rute Login dan Logout
 Route::get('/login', function () {
     return view('users.login');
 })->name('login');
 
-
-// Rute logout dengan metode POST
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-// users route
+// Rute untuk halaman utama user
 Route::get('/', function () {
-    return view('users/index');
-});
-Route::get('/login', function () {
-    return view('users/login');
-});
-// Menggunakan middleware untuk halaman yang membutuhkan login
-Route::get('/vote', function () {
-    return view('users.vote');
-})->middleware(EnsureUserIsAuthenticated::class);
-
-Route::get('/feedback', function () {
-    return view('users.feedback');
-})->middleware(EnsureUserIsAuthenticated::class);
-
-
-// admin route
-
-Route::get('admin/', function () {
-    return view('admin/index');
-});
-Route::get('admin/table-feedback', function () {
-    return view('admin/table-feedback');
-});
-Route::get('admin/table-vote', function () {
-    return view('admin/table-vote');
-});
-Route::get('admin/table-transactions', function () {
-    return view('admin/table-transactions');
+    return view('users.index');
 });
 
-// owner route
+// Rute untuk halaman yang membutuhkan login user
+Route::middleware(['web', EnsureUserIsAuthenticated::class])->group(function () {
+    Route::get('/vote', function () {
+        return view('users.vote');
+    });
 
-Route::get('owner/', function () {
-    return view('owner/index');
+    Route::middleware([EnsureUserIsAuthenticated::class])->group(function () {
+        Route::get('/feedback', function () {
+            return view('users.feedback');
+        });
+
+        Route::post('/feedback', [FeedbackController::class, 'store']);
+    });
+    Route::post('/vote', [VoteController::class, 'vote']);
 });
-Route::get('owner/table-feedback', function () {
-    return view('owner/table-feedback');
+
+// Rute Admin (dengan middleware khusus admin)
+Route::middleware([AdminMiddleware::class])->group(function () {
+    Route::get('/admin', function () {
+        return view('admin.index');
+    });
+    Route::get('/admin/table-feedback', [FeedbackController::class, 'index']);
+    Route::get('/admin/table-vote', [VoteController::class, 'index']);
+    Route::get('/admin/table-transactions', function () {
+        return view('admin.table-transactions');
+    });
 });
-Route::get('owner/table-vote', function () {
-    return view('owner/table-vote');
-});
-Route::get('owner/table-transactions', function () {
-    return view('owner/table-transactions');
-});
-Route::get('owner/edit_transactions', function () {
-    return view('owner/edit_transactions');
-});
-Route::get('owner/print', function () {
-    return view('owner/print');
+
+// Rute Owner (dengan middleware khusus owner)
+Route::middleware([OwnerMiddleware::class])->group(function () {
+    Route::get('/owner', function () {
+        return view('owner.index');
+    });
+    Route::get('/owner/table-feedback', function () {
+        return view('owner.table-feedback');
+    });
+    Route::get('/owner/table-vote', function () {
+        return view('owner.table-vote');
+    });
+    Route::get('/owner/table-transactions', function () {
+        return view('owner.table-transactions');
+    });
+    Route::get('/owner/edit_transactions', function () {
+        return view('owner.edit_transactions');
+    });
+    Route::get('/owner/print', function () {
+        return view('owner.print');
+    });
 });

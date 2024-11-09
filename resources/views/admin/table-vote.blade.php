@@ -1,56 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cloud SMP - Admin | Vote Table</title>
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
-</head>
-
-<body>
-    <div class="table-container">
-        <h1 class="vote-title">Vote Table</h1>
-        <!-- Options for items per page and pagination -->
-        <div class="table-options">
-            <div class="item-limit">
-                <label for="itemsPerPage">Show: </label>
-                <select id="itemsPerPage">
-                    <option value="5">5</option>
-                    <option value="20">20</option>
-                    <option value="50">50</option>
-                    <option value="100">100</option>
-                </select>
-                entries
-            </div>
-            <div class="pagination">
-                <span class="page-num active-page">1</span>
-                <span class="page-num">2</span>
-                <span class="page-num">3</span>
-                <!-- Add additional page numbers as needed -->
-            </div>
-        </div>
-        <table class="vote-table">
-            <thead>
+@section('content')
+    <div class="vote-table">
+        <h2>Daftar Vote</h2>
+        <table>
+            <tr>
+                <th>Gamertag</th>
+                <th>Vote Status</th>
+                <th>Tanggal</th>
+            </tr>
+            @foreach ($votes as $vote)
                 <tr>
-                    <th>ID</th>
-                    <th>User Name</th>
-                    <th>Vote</th>
-                    <th>Date</th>
+                    <td>{{ $vote->gamertag }}</td>
+                    <td>{{ $vote->has_voted ? 'Voted' : 'Not Voted' }}</td>
+                    <td>{{ $vote->created_at }}</td>
                 </tr>
-            </thead>
-            <tbody>
-                <!-- Example Row -->
-                <tr>
-                    <td>1</td>
-                    <td>JaneDoe</td>
-                    <td>Upvote</td>
-                    <td>01-11-2024</td>
-                </tr>
-                <!-- Additional rows as needed -->
-            </tbody>
+            @endforeach
         </table>
     </div>
-</body>
-
-</html>
+@endsection

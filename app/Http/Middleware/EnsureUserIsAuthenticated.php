@@ -10,9 +10,13 @@ class EnsureUserIsAuthenticated
 {
     public function handle(Request $request, Closure $next)
     {
-        if (!Session::has('user')) {
-            return redirect('/login')->withErrors(['loginError']);
+        // Diagnostik: Menampilkan sesi yang aktif
+        if (!Session::has('gamertag')) {
+            return redirect('/login')->withErrors(['loginError' => 'Silakan login terlebih dahulu.']);
         }
+
+        // Jika sesi tersedia, tambahkan pesan diagnostik ke halaman
+        Session::flash('debug_message', 'Sesi terdeteksi untuk gamertag: ' . Session::get('gamertag'));
 
         return $next($request);
     }

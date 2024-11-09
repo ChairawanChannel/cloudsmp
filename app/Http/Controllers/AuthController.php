@@ -15,7 +15,7 @@ class AuthController extends Controller
             'password' => 'required|string',
         ]);
 
-        // Dapatkan pengguna dari tabel AuthMe berdasarkan gamertag
+        // Dapatkan pengguna dari tabel `users` berdasarkan gamertag
         $user = DB::table('users')->where('gamertag', $request->input('gamertag'))->first();
 
         if ($user) {
@@ -28,7 +28,6 @@ class AuthController extends Controller
                 // Hash password yang dimasukkan dengan salt
                 $inputPasswordHash = hash('sha256', hash('sha256', $request->input('password')) . $salt);
 
-                // Verifikasi jika hash password yang dimasukkan sesuai dengan hash database
                 if ($inputPasswordHash === $hash) {
                     // Ambil role dari tabel user_roles berdasarkan gamertag
                     $role = DB::table('user_roles')->where('gamertag', $user->gamertag)->value('role') ?? 'user';
@@ -56,7 +55,6 @@ class AuthController extends Controller
     // Fungsi untuk logout
     public function logout()
     {
-        // Hapus sesi user
         Session::forget(['role', 'gamertag']);
         return redirect('/login')->with('success', 'Logout berhasil');
     }
