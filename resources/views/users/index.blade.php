@@ -261,11 +261,11 @@
     <!-- Review End -->
 
     <!-- Footer -->
-    @section('partial/footer')
-        <!-- Footer End -->
+    @include('partials.footer')
+    <!-- Footer End -->
 
-        <!-- JavaScript for Carousel Functionality -->
-        <script src="{{ asset('javascript/script.js') }}"></script>
-    </body>
+    <!-- JavaScript for Carousel Functionality -->
+    <script src="{{ asset('javascript/script.js') }}"></script>
+</body>
 
-    </html>
+</html>

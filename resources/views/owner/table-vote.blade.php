@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
 </head>
 
-<body>
+<body>@include('partials.navbar-owner')
     <div class="table-container">
         <h1 class="vote-title">Vote Table</h1>
         <!-- Options for items per page and pagination -->

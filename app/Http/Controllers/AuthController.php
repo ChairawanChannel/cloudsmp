@@ -15,7 +15,7 @@ class AuthController extends Controller
             'password' => 'required|string',
         ]);
 
-        // Dapatkan pengguna dari tabel `users` berdasarkan gamertag
+        // Dapatkan pengguna dari tabel users berdasarkan gamertag
         $user = DB::table('users')->where('gamertag', $request->input('gamertag'))->first();
 
         if ($user) {
@@ -38,18 +38,18 @@ class AuthController extends Controller
 
                     // Arahkan pengguna berdasarkan role
                     if ($role === 'admin') {
-                        return redirect('/admin')->with('success', 'Login berhasil sebagai Admin!');
+                        return redirect('/admin')->with('success');
                     } elseif ($role === 'owner') {
-                        return redirect('/owner')->with('success', 'Login berhasil sebagai Owner!');
+                        return redirect('/owner')->with('success');
                     } else {
-                        return redirect('/')->with('success', 'Login berhasil sebagai User!');
+                        return redirect('/')->with('success');
                     }
                 }
             }
         }
 
         // Jika gagal login, kembalikan dengan pesan error
-        return back()->withErrors(['loginError' => 'Gamertag atau password salah.']);
+        return back()->with(['error' => 'Gamertag atau password salah.']);
     }
 
     // Fungsi untuk logout

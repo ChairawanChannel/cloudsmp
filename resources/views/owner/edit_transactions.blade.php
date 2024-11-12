@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    @include('partials.navbar-owner')
     <div class="edit-container">
         <h1 class="edit-title">Edit Transaksi</h1>
 

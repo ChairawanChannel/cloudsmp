@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
 </head>
 
-<body>
+<body>@include('partials.navbar-owner')
     <div class="table-container">
         <h1 class="feedback-title">Feedback Table</h1>
 

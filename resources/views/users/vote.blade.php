@@ -14,3 +14,4 @@
         @endif
     </div>
 @endsection
+@include('partials.footer')

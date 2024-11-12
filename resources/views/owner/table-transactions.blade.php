@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
 </head>
 
-<body>
+<body>@include('partials.navbar-owner')
     <div class="table-container">
         <h1 class="transactions-title">Transactions Table</h1>
         <!-- Options for items per page and pagination -->
@@ -48,7 +48,7 @@
                     <td>Upgrade</td>
                     <td>01-11-2024</td>
                     <td>
-                        <a href="edit_transactions.html" class="edit-btn">Edit</a>
+                        <a href="/edit_transactions" class="edit-btn">Edit</a>
                         <button class="delete-btn">Delete</button>
                     </td>
                 </tr>

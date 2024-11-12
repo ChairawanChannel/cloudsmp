@@ -42,9 +42,13 @@ Route::middleware([AdminMiddleware::class])->group(function () {
     Route::get('/admin', function () {
         return view('admin.index');
     });
-    Route::get('/admin/table-feedback', [FeedbackController::class, 'index']);
-    Route::get('/admin/table-vote', [VoteController::class, 'index']);
-    Route::get('/admin/table-transactions', function () {
+    Route::get('/atable-feedback', function () {
+        return view('admin.table-feedback');
+    });
+    Route::get('/atable-vote', function () {
+        return view('admin.table-vote');
+    });
+    Route::get('/atable-transactions', function () {
         return view('admin.table-transactions');
     });
 });
@@ -54,19 +58,19 @@ Route::middleware([OwnerMiddleware::class])->group(function () {
     Route::get('/owner', function () {
         return view('owner.index');
     });
-    Route::get('/owner/table-feedback', function () {
+    Route::get('/table-feedback', function () {
         return view('owner.table-feedback');
     });
-    Route::get('/owner/table-vote', function () {
+    Route::get('/table-vote', function () {
         return view('owner.table-vote');
     });
-    Route::get('/owner/table-transactions', function () {
+    Route::get('/table-transactions', function () {
         return view('owner.table-transactions');
     });
-    Route::get('/owner/edit_transactions', function () {
+    Route::get('/edit_transactions', function () {
         return view('owner.edit_transactions');
     });
-    Route::get('/owner/print', function () {
+    Route::get('/print', function () {
         return view('owner.print');
     });
 });

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('.app')
 
 @section('content')
     <div class="feedback-table">
@@ -9,7 +9,7 @@
                 <th>Feedback</th>
                 <th>Tanggal</th>
             </tr>
-            @foreach ($feedback as $item)
+            @foreach ($itemo as $item)
                 <tr>
                     <td>{{ $item->gamertag }}</td>
                     <td>{{ $item->message }}</td>

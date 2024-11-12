@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
 </head>
 
-<body>
+<body>@include('partials.navbar-owner')
     <div class="print-container">
         <h1 class="print-title">Print Laporan</h1>
 

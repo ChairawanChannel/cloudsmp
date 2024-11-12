@@ -1526,8 +1526,8 @@ footer {
     font-size: 1em;
     border: 1px solid #ccc;
     border-radius: 4px;
-    background-color: #222;
-    color: #f3f3f3;
+    background-color: #f3f3f3;
+    color: #000;
 }
 
 /* Responsive Styles */
