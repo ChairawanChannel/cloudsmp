@@ -14,6 +14,7 @@ Route::get('/login', function () {
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+
 // Halaman Utama User
 Route::get('/', function () {
     return view('users.index');
