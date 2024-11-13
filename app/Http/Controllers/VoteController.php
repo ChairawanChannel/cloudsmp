@@ -25,11 +25,4 @@ class VoteController extends Controller
 
         return back()->with('success', 'Terima kasih telah memberikan vote!');
     }
-
-    public function index()
-    {
-        // Ambil semua data vote untuk halaman admin/owner
-        $votes = DB::table('votes')->get();
-        return view('admin.table-vote', compact('votes'));
-    }
 }

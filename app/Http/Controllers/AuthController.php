@@ -29,33 +29,26 @@ class AuthController extends Controller
                 $inputPasswordHash = hash('sha256', hash('sha256', $request->input('password')) . $salt);
 
                 if ($inputPasswordHash === $hash) {
-                    // Ambil role dari tabel user_roles berdasarkan gamertag
-                    $role = DB::table('user_roles')->where('gamertag', $user->gamertag)->value('role') ?? 'user';
-
-                    // Simpan role dan gamertag di session
-                    Session::put('role', $role);
+                    // Simpan hanya gamertag di session
                     Session::put('gamertag', $user->gamertag);
 
-                    // Arahkan pengguna berdasarkan role
-                    if ($role === 'admin') {
-                        return redirect('/admin')->with('success');
-                    } elseif ($role === 'owner') {
-                        return redirect('/owner')->with('success');
-                    } else {
-                        return redirect('/')->with('success');
-                    }
+                    // Arahkan ke halaman utama setelah login berhasil
+                    return redirect('/')->with('success', 'Login berhasil, selamat datang!');
                 }
             }
         }
 
         // Jika gagal login, kembalikan dengan pesan error
-        return back()->with(['error' => 'Gamertag atau password salah.']);
+        return back()->withErrors(['loginError' => 'Gamertag atau password salah.']);
     }
 
     // Fungsi untuk logout
     public function logout()
     {
-        Session::forget(['role', 'gamertag']);
+        // Hapus sesi gamertag
+        Session::forget('gamertag');
+
+        // Arahkan ke halaman login dengan pesan sukses
         return redirect('/login')->with('success', 'Logout berhasil');
     }
 }
