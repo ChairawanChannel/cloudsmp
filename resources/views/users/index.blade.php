@@ -214,10 +214,11 @@
 
     <!-- Carousel Controls -->
     <div id="review" class="review">
-        <h2 class="title-review">Review</h2>
+        <h2 class="title-review">Feedback</h2>
         <p class="description-content-in-heading">
-            Ini adalah review dari kalian!
+            Feedback dari kalian sangat berarti untuk server ini agar terus berkembang!!
         </p>
+        <a class="review-button" href="/feedback">Beri Feedback</a>
     </div>
     <!-- Comment Section -->
     <div class="comment-section">

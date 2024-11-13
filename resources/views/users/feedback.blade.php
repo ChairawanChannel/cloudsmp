@@ -9,7 +9,7 @@
         </span>
         <button class="close-btn" onclick="this.parentElement.style.display='none';">&times;</button>
     </div>
-@elseif(session('error'))
+@elseif (session('error'))
     <div class="alert alert-danger">
         <i class="fa fa-times-circle"></i>
         <span>
@@ -18,6 +18,7 @@
         <button class="close-btn" onclick="this.parentElement.style.display='none';">&times;</button>
     </div>
 @endif
+
 <div id="feedback" class="feedback">
     <h2 class="title-feedback">Feedback</h2>
     <p class="description-content-in-heading">

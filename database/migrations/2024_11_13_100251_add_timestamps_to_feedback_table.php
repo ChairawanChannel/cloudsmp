@@ -11,19 +11,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('remember_token', 255)->nullable();
+        Schema::table('feedback', function (Blueprint $table) {
+            $table->timestamps(); // Menambahkan created_at dan updated_at
         });
     }
-
-
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('feedback', function (Blueprint $table) {
             //
         });
     }
