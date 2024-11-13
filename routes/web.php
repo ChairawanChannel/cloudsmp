@@ -4,8 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\VoteController;
-use App\Http\Middleware\AdminMiddleware;
-use App\Http\Middleware\OwnerMiddleware;
+use App\Http\Middleware\RememberMeMiddleware;
 use App\Http\Middleware\EnsureUserIsAuthenticated;
 
 // Rute Login dan Logout

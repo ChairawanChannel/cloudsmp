@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Cookie;
 
 class AuthController extends Controller
 {
@@ -15,11 +17,10 @@ class AuthController extends Controller
             'password' => 'required|string',
         ]);
 
-        // Dapatkan pengguna dari tabel users berdasarkan gamertag
+        // Ambil pengguna dari tabel users berdasarkan gamertag
         $user = DB::table('users')->where('gamertag', $request->input('gamertag'))->first();
 
         if ($user) {
-            // Ekstrak salt dan hash dari format AuthMe: $SHA$<salt>$<hash>
             $passwordData = explode('$', $user->password);
             if (count($passwordData) === 4 && $passwordData[1] === 'SHA') {
                 $salt = $passwordData[2];
@@ -29,26 +30,36 @@ class AuthController extends Controller
                 $inputPasswordHash = hash('sha256', hash('sha256', $request->input('password')) . $salt);
 
                 if ($inputPasswordHash === $hash) {
-                    // Simpan hanya gamertag di session
                     Session::put('gamertag', $user->gamertag);
 
-                    // Arahkan ke halaman utama setelah login berhasil
+                    // Jika Remember Me dicentang, set token ke cookie dan simpan di database
+                    if ($request->has('remember')) {
+                        $token = Str::random(60); // Generate random token
+                        Cookie::queue('remember_token', $token, 1440); // 1440 menit = 24 jam
+
+                        // Simpan token ke database (misalnya di tabel users atau login_sessions)
+                        DB::table('users')->where('gamertag', $user->gamertag)->update([
+                            'remember_token' => hash('sha256', $token)
+                        ]);
+                    }
+
                     return redirect('/')->with('success', 'Login berhasil, selamat datang!');
                 }
             }
         }
 
-        // Jika gagal login, kembalikan dengan pesan error
         return back()->withErrors(['loginError' => 'Gamertag atau password salah.']);
     }
 
-    // Fungsi untuk logout
     public function logout()
     {
-        // Hapus sesi gamertag
+        // Hapus cookie remember_token jika ada
+        if (Cookie::has('remember_token')) {
+            Cookie::queue(Cookie::forget('remember_token'));
+        }
+
         Session::forget('gamertag');
 
-        // Arahkan ke halaman login dengan pesan sukses
         return redirect('/login')->with('success', 'Logout berhasil');
     }
 }

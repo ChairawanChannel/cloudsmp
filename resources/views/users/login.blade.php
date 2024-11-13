@@ -33,6 +33,10 @@
                 <label for="password"><i class="fa-solid fa-lock"></i> Password</label>
                 <input id="password" type="password" name="password" placeholder="Password" required
                     autocomplete="off" />
+                <div>
+                    <input type="checkbox" id="remember" name="remember">
+                    <label for="remember">Remember Me</label>
+                </div>
 
                 <button type="submit">Login</button>
 
