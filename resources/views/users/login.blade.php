@@ -37,7 +37,8 @@
                 <button type="submit">Login</button>
 
                 <p class="footer-text">
-                    Lupa Password? <a href="forgot-password.html">Silahkan Hubungi Admin</a>
+                    Lupa Password? <a href="https://discord.gg/xYdWWxREPZ" target="blank">Silahkan Hubungi Admin</a>
+
                 </p>
             </form>
         </div>

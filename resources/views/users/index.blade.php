@@ -33,7 +33,7 @@
         <i class="fa fa-info-circle"></i>
         <span>
             <strong>Lupa Password?</strong> Silahkan Hubungi Admin Discord untuk mereset password anda!
-            <a href="#" target="_blank">Klik disini untuk menghubungi Admin
+            <a href="https://discord.gg/xYdWWxREPZ" target="_blank">Klik disini untuk menghubungi Admin
                 Discord</a>
         </span>
         <button class="close-btn" onclick="closeAlert()">&times;</button>
@@ -47,11 +47,13 @@
             <p>Explore the server and enjoy your adventure</p>
             <!-- Buttons -->
             <div class="button-container">
-                <button class="join-button">Join the Server</button>
+                <button class="join-button">Join the
+                    Server</button>
                 <button class="discord-button">
-                    <i class="fa-brands fa-discord"></i>
+                    <a href="https://discord.gg/xYdWWxREPZ" target="_blank"><i class="fa-brands fa-discord"></i></a>
                 </button>
-                <button class="vote-button"><a href="/vote" style="text-decoration: none;">Vote Server!</a></button>
+                <button class="vote-button"><a href="/vote" style="text-decoration: none;">Vote
+                        Server!</a></button>
             </div>
             <div class="onlinetxt" id="playerCount">ONLINE PLAYER: 0</div>
         </div>
@@ -262,7 +264,11 @@
     <!-- Review End -->
 
     <!-- Footer -->
-    @include('partials.footer')
+    <footer class="footer" style="
+    position: static;">
+        <p>Cloud SMP &copy; 2024 - All Rights Reserved</p>
+    </footer>
+
     <!-- Footer End -->
 
     <!-- JavaScript for Carousel Functionality -->
