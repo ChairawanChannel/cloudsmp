@@ -12,19 +12,28 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id'); // Primary Key
+            $table->string('username')->unique();
+            $table->string('gamertag')->unique();
             $table->string('name');
             $table->string('email')->unique();
+            $table->smallInteger('isLogged')->default(0);
+            $table->smallInteger('hasSession')->default(0);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->rememberToken();
+            $table->string('remember_token', 100)->nullable();
             $table->timestamps();
-        });
-
-        Schema::create('password_reset_tokens', function (Blueprint $table) {
-            $table->string('email')->primary();
-            $table->string('token');
-            $table->timestamp('created_at')->nullable();
+            $table->string('ip', 40)->charset('ascii')->collation('ascii_bin')->nullable();
+            $table->bigInteger('lastlogin')->nullable();
+            $table->double('x')->default(0);
+            $table->double('y')->default(0);
+            $table->double('z')->default(0);
+            $table->string('world')->default('world');
+            $table->bigInteger('regdate')->default(0);
+            $table->string('regip', 40)->charset('ascii')->collation('ascii_bin')->nullable();
+            $table->float('yaw')->nullable();
+            $table->float('pitch')->nullable();
+            $table->string('totp', 32)->nullable();
         });
 
         Schema::create('sessions', function (Blueprint $table) {

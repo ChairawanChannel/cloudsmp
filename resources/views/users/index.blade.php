@@ -49,11 +49,11 @@
             <div class="button-container">
                 <button class="join-button">Join the
                     Server</button>
-                <button class="discord-button">
-                    <a href="https://discord.gg/xYdWWxREPZ" target="_blank"><i class="fa-brands fa-discord"></i></a>
-                </button>
-                <button class="vote-button"><a href="/vote" style="text-decoration: none;">Vote
-                        Server!</a></button>
+                <a href="https://discord.gg/xYdWWxREPZ" target="_blank"><button class="discord-button">
+                        <i class="fa-brands fa-discord"></i>
+                    </button></a>
+                <a href="/vote" style="text-decoration: none;"><button class="vote-button">Vote
+                        Server!</button></a>
             </div>
             <div class="onlinetxt" id="playerCount">ONLINE PLAYER: 0</div>
         </div>
@@ -84,11 +84,11 @@
                         class="logo-survival-economy" />
                     <p class="mode-deskripsi">Survival Economy</p>
                 </div>
-                <div class="mode-item">
+                {{-- <div class="mode-item">
                     <img src="{{ asset('image/icon/appartment-3-svgrepo-com.png') }}" alt=""
                         class="logo-skyblock" />
                     <p class="mode-deskripsi">Skyblock</p>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
@@ -117,7 +117,7 @@
         <div class="rank-container">
             <!-- Rank Box Item -->
             <div class="rank-box">
-                <img src="{{ asset('image/icon/rank cloud+.png') }}" alt="" />
+                <img src="{{ asset('image/icon/Untitled 1.png') }}" alt="" />
                 <h3 class="rank-name">Cloud</h3>
                 <p class="rank-harga">Free</p>
                 <p class="rank-description">Tidak Ada Fitur</p>
@@ -131,7 +131,7 @@
                     • /wings (Unlock 3 Wings) <br />
                     • /Hat (Unlock 3 Hat) <br />• 20000 CC
                 </p>
-                <button class="rank-button">Beli</button>
+                <a href="https://discord.gg/xYdWWxREPZ" target="_blank"><button class="rank-button">Beli</button></a>
             </div>
             <div class="rank-box">
                 <img src="{{ asset('image/icon/XIV Lightroom.png') }}" alt="" />
@@ -142,7 +142,7 @@
                     <br />
                     <br />
                 </p>
-                <button class="rank-button">Vote</button>
+                <a href="#" target="_blank"><button class="rank-button">Vote</button></a>
             </div>
             <div class="rank-box">
                 <img src="{{ asset('image/icon/XIV 1.png') }}" alt="" />
@@ -153,7 +153,7 @@
                     • /wings (Unlock 3 Wings) <br />
                     • /Hat (Unlock 3 Hat) <br />• 25000 CC
                 </p>
-                <button class="rank-button">Beli</button>
+                <a href="https://discord.gg/xYdWWxREPZ" target="_blank"><button class="rank-button">Beli</button></a>
             </div>
             <div class="rank-box">
                 <img src="{{ asset('image/icon/XIV Lightroom.png') }}" alt="" />
@@ -164,10 +164,10 @@
                     • /wings (Unlock 3 Wings) <br />
                     • /Hat (Unlock 3 Hat) <br />• 20000 CC
                 </p>
-                <button class="rank-button">Beli</button>
+                <a href="https://discord.gg/xYdWWxREPZ" target="_blank"><button class="rank-button">Beli</button></a>
             </div>
             <div class="rank-box">
-                <img src="{{ asset('image/icon/rank cloud+.png') }}" alt="" />
+                <img src="{{ asset('image/icon/asasd.png') }}" alt="" />
                 <h3 class="rank-name">Galaxy</h3>
                 <p class="rank-harga">Rp75.000</p>
                 <p class="rank-description">
@@ -175,7 +175,7 @@
                     • /wings (Unlock 3 Wings) <br />
                     • /Hat (Unlock 3 Hat) <br />• 20000 CC
                 </p>
-                <button class="rank-button">Beli</button>
+                <a href="https://discord.gg/xYdWWxREPZ" target="_blank"><button class="rank-button">Beli</button></a>
             </div>
             <!-- Repeat Rank Boxes as needed -->
         </div>
@@ -197,7 +197,8 @@
                     Cloud Cosmetic Keys : 3x Keys
                 </p>
                 <p class="topup-harga">Harga: Rp20.000</p>
-                <button class="topup-button">Beli</button>
+                <a href="https://discord.gg/xYdWWxREPZ" target="_blank"><button
+                        class="topup-button">Beli</button></a>
             </div>
             <div class="topup-container">
                 <h3 class="topup-paket">Paket Saturnus</h3>
@@ -207,7 +208,8 @@
                     Cloud Cosmetic Keys : 3x Keys
                 </p>
                 <p class="topup-harga">Harga: Rp25.000</p>
-                <button class="topup-button">Beli</button>
+                <a href="https://discord.gg/xYdWWxREPZ" target="_blank"><button
+                        class="topup-button">Beli</button></a>
             </div>
         </div>
     </div>

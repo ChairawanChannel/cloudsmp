@@ -589,6 +589,11 @@ a:link {
     color: #f3f3f3;
     line-height: 1.6;
 }
+.rank-box a,
+.topup-container a {
+    width: 100%;
+    text-decoration: none;
+}
 .rank-button {
     text-decoration: none;
     margin: 10px 0 0 0;
