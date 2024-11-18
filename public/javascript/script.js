@@ -106,7 +106,7 @@ async function fetchPlayerCount() {
     try {
         // URL endpoint dengan IP server Minecraft kamu
         const response = await fetch(
-            "https://api.mcsrvstat.us/3/sg.jessestore.my.id:25565"
+            "https://api.mcsrvstat.us/3/node3.quenssshost.my.id:25526"
         );
         const data = await response.json();
 

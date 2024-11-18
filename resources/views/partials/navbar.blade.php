@@ -17,7 +17,8 @@
 
 </html><!-- Navbar Start -->
 <nav class="navbar">
-    <div class="logo">CLOUD<span>SMP</span></div>
+    <div class="logo"><img src="{{ asset('image/icon/logo_server_cloudsmp_HD_-removebg-preview.png') }}"
+            alt=""></div>
     <!-- Navigation Links -->
     <div class="nav-links">
         <a href="/" class="nav-link"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
@@ -25,7 +26,8 @@
         <a href="/#ranks" class="nav-link"><i class="fa-solid fa-coins"></i> Ranks</a>
         <a href="/#topup" class="nav-link"><i class="fa-solid fa-circle-dollar-to-slot"></i> Topup</a>
         <a href="/feedback" class="nav-link"><i class="fa-solid fa-comments"></i> Feedback</a>
-        <a href="/vote" class="nav-link"><i class="fa-solid fa-pen-clip"></i> Vote</a>
+        <a href="#" class="nav-link"><i class="fa-solid fa-pen-clip"></i> Vote</a>
+        <a href="/reedemcode" class="nav-link"><i class="fa-solid fa-inbox"></i> Reedem Code</a>
     </div>
     <div class="navbar-right">
         <label class="popup">
