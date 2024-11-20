@@ -1113,24 +1113,70 @@ footer {
     font-weight: bold;
 }
 
-/* Responsive Design */
-/* @media (max-width: 768px) {
-    .reedemcode {
-        padding: 20px 10px;
-    }
+/* Buy page */
+/* Buy Options Page Styling */
+.buy-options {
+    padding: 40px 20px;
+    text-align: center;
+    color: #f3f3f3;
+    background-color: #0c1228;
+    min-height: calc(100vh - 100px); /* Full height minus navbar and footer */
+}
 
-    .title-reedemcode {
-        font-size: 1.5em;
-    }
+.title-buy {
+    font-size: 2em;
+    font-weight: bold;
+    color: #f5a425;
+    margin-bottom: 20px;
+}
 
-    .description-content-in-heading {
-        font-size: 1em;
-    }
+.description-buy {
+    font-size: 1.1em;
+    color: #e0e0e0;
+    margin-bottom: 40px;
+}
 
-    .reedemcode-container li {
-        font-size: 1em;
-    }
-} */
+.options-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.buy-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #18233a;
+    border-radius: 10px;
+    padding: 20px;
+    width: 200px;
+    text-decoration: none;
+    color: #f3f3f3;
+    transition: background-color 0.3s;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.buy-option:hover {
+    background-color: #1c2a45;
+}
+
+.buy-option i {
+    font-size: 3em;
+    margin-bottom: 15px;
+}
+
+.buy-option.whatsapp i {
+    color: #25d366; /* Warna hijau khas WhatsApp */
+}
+
+.buy-option.discord i {
+    color: #7289da; /* Warna biru khas Discord */
+}
+
+.buy-option span {
+    font-size: 1.1em;
+    font-weight: bold;
+}
 
 /* Login.html end */
 /* Notification Start */

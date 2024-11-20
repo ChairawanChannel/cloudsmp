@@ -4,10 +4,15 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login - CLOUD SMP</title>
+    <title>Cloud SMP - Home</title>
+    <link rel="shortcut icon" href="{{ asset('image/icon/logo_server_cloudsmp_HD_-removebg-preview.png') }}"
+        type="image/x-icon">
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet" />
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
 </head>
 
 <body>

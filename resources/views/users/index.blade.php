@@ -5,6 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cloud SMP - Home</title>
+    <link rel="shortcut icon" href="{{ asset('image/icon/logo_server_cloudsmp_HD_-removebg-preview.png') }}"
+        type="image/x-icon">
     <!-- CSS Stylesheet -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
     <!-- Google Fonts -->
@@ -33,10 +35,17 @@
         <i class="fa fa-info-circle"></i>
         <span>
             <strong>Lupa Password?</strong> Silahkan Hubungi Admin Discord untuk mereset password anda!
-            <a href="https://discord.gg/xYdWWxREPZ" target="_blank">Klik disini untuk menghubungi Admin
+            <a href="/buy" target="_blank">Klik disini untuk menghubungi Admin
                 Discord</a>
         </span>
         <button class="close-btn" onclick="closeAlert()">&times;</button>
+    </div>
+    <div id="notification" class="alert alert-success" style="display: none;">
+        <i class="fa fa-check-circle"></i>
+        <span class="notification-message">
+            <strong>Berhasil!</strong> <span id="notification-text">Operasi telah dilakukan dengan sukses.</span>
+        </span>
+        <button class="close-btn" onclick="closeNotification()">&times;</button>
     </div>
 
     <!-- Notification End -->
@@ -47,12 +56,12 @@
             <p>Explore the server and enjoy your adventure</p>
             <!-- Buttons -->
             <div class="button-container">
-                <button class="join-button">Join the
-                    Server</button>
+                <button id="join-server" class="join-button">Join Server</button>
                 <a href="https://discord.gg/xYdWWxREPZ" target="_blank"><button class="discord-button">
                         <i class="fa-brands fa-discord"></i>
                     </button></a>
-                <a href="/vote" style="text-decoration: none;"><button class="vote-button">Vote
+                <a href="https://minecraft-mp.com/server/338140/vote/" target="blank"
+                    style="text-decoration: none;"><button class="vote-button">Vote
                         Server!</button></a>
             </div>
             <div class="onlinetxt" id="playerCount">ONLINE PLAYER: 0</div>
@@ -131,7 +140,7 @@
                     • /wings (Unlock 3 Wings) <br />
                     • /Hat (Unlock 3 Hat) <br />• 20000 CC
                 </p>
-                <a href="https://discord.gg/xYdWWxREPZ" target="_blank"><button class="rank-button">Beli</button></a>
+                <a href="/buy" target="_blank"><button class="rank-button">Beli</button></a>
             </div>
             <div class="rank-box">
                 <img src="{{ asset('image/icon/XIV Lightroom.png') }}" alt="" />
@@ -142,7 +151,8 @@
                     <br />
                     <br />
                 </p>
-                <a href="#" target="_blank"><button class="rank-button">Vote</button></a>
+                <a href="https://minecraft-mp.com/server/338140/vote/" target="_blank"><button
+                        class="rank-button">Vote</button></a>
             </div>
             <div class="rank-box">
                 <img src="{{ asset('image/icon/XIV 1.png') }}" alt="" />
@@ -153,7 +163,7 @@
                     • /wings (Unlock 3 Wings) <br />
                     • /Hat (Unlock 3 Hat) <br />• 25000 CC
                 </p>
-                <a href="https://discord.gg/xYdWWxREPZ" target="_blank"><button class="rank-button">Beli</button></a>
+                <a href="/buy" target="_blank"><button class="rank-button">Beli</button></a>
             </div>
             <div class="rank-box">
                 <img src="{{ asset('image/icon/XIV Lightroom.png') }}" alt="" />
@@ -164,7 +174,7 @@
                     • /wings (Unlock 3 Wings) <br />
                     • /Hat (Unlock 3 Hat) <br />• 20000 CC
                 </p>
-                <a href="https://discord.gg/xYdWWxREPZ" target="_blank"><button class="rank-button">Beli</button></a>
+                <a href="/buy" target="_blank"><button class="rank-button">Beli</button></a>
             </div>
             <div class="rank-box">
                 <img src="{{ asset('image/icon/asasd.png') }}" alt="" />
@@ -175,7 +185,7 @@
                     • /wings (Unlock 3 Wings) <br />
                     • /Hat (Unlock 3 Hat) <br />• 20000 CC
                 </p>
-                <a href="https://discord.gg/xYdWWxREPZ" target="_blank"><button class="rank-button">Beli</button></a>
+                <a href="/buy" target="_blank"><button class="rank-button">Beli</button></a>
             </div>
             <!-- Repeat Rank Boxes as needed -->
         </div>
@@ -197,8 +207,7 @@
                     Cloud Cosmetic Keys : 3x Keys
                 </p>
                 <p class="topup-harga">Harga: Rp20.000</p>
-                <a href="https://discord.gg/xYdWWxREPZ" target="_blank"><button
-                        class="topup-button">Beli</button></a>
+                <a href="/buy" target="_blank"><button class="topup-button">Beli</button></a>
             </div>
             <div class="topup-container">
                 <h3 class="topup-paket">Paket Saturnus</h3>
@@ -208,8 +217,7 @@
                     Cloud Cosmetic Keys : 3x Keys
                 </p>
                 <p class="topup-harga">Harga: Rp25.000</p>
-                <a href="https://discord.gg/xYdWWxREPZ" target="_blank"><button
-                        class="topup-button">Beli</button></a>
+                <a href="/buy" target="_blank"><button class="topup-button">Beli</button></a>
             </div>
         </div>
     </div>
@@ -232,14 +240,13 @@
                 <div class="comment-card">
                     <div class="comment-header">
                         <div>
-                            <p class="username">Kineryy</p>
+                            <p class="username">.Kineryy</p>
                             <p class="timestamp">5 days ago</p>
                         </div>
                     </div>
                     <div class="comment-body">
                         <p>
-                            The Best dah pokoknya. banyak item item baru, paling suka fitur
-                            minion di skyblock sih.
+                            The Best dah pokoknya. banyak item item baru, paling suka senjata RPG nya sih.
                         </p>
                     </div>
                 </div>
@@ -254,8 +261,7 @@
                     </div>
                     <div class="comment-body">
                         <p>
-                            Server keren yang pernah ada. baru kali ini main server survival
-                            sebagus ini! bahkan ada skyblocknya, gila sih.
+                            Server TER-GG!
                         </p>
                     </div>
                 </div>
@@ -278,15 +284,15 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#ranks">Ranks</a></li>
                     <li><a href="/feedback">Feedback</a></li>
-                    <li><a href="#vote">Vote</a></li>
+                    <li><a href="https://minecraft-mp.com/server/338140/vote/" target="blank">Vote</a></li>
                     <li><a href="/reedemcode">Reedem Code</a></li>
                 </ul>
             </div>
             <div class="footer-social">
-                <a href="https://discord.com" target="_blank">
+                <a href="https://discord.gg/xYdWWxREPZ" target="_blank">
                     <i class="fa-brands fa-discord"></i>
                 </a>
-                <a href="https://wa.me" target="_blank">
+                <a href="https://chat.whatsapp.com/Bix23TSwcDjK1PvK5lmpSj" target="_blank">
                     <i class="fa-brands fa-whatsapp"></i> </a>
             </div>
             <div class="footer-copyright">

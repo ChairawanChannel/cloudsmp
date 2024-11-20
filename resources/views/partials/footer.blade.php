@@ -14,10 +14,10 @@
             </ul>
         </div>
         <div class="footer-social">
-            <a href="https://discord.com" target="_blank">
+            <a href="https://discord.gg/xYdWWxREPZ" target="_blank">
                 <i class="fa-brands fa-discord"></i>
             </a>
-            <a href="https://wa.me" target="_blank">
+            <a href="https://chat.whatsapp.com/Bix23TSwcDjK1PvK5lmpSj" target="_blank">
                 <i class="fa-brands fa-whatsapp"></i> </a>
         </div>
         <div class="footer-copyright">

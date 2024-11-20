@@ -26,7 +26,9 @@
         <a href="/#ranks" class="nav-link"><i class="fa-solid fa-coins"></i> Ranks</a>
         <a href="/#topup" class="nav-link"><i class="fa-solid fa-circle-dollar-to-slot"></i> Topup</a>
         <a href="/feedback" class="nav-link"><i class="fa-solid fa-comments"></i> Feedback</a>
-        <a href="#" class="nav-link"><i class="fa-solid fa-pen-clip"></i> Vote</a>
+        <a href="https://minecraft-mp.com/server/338140/vote/" target="blank" class="nav-link"><i
+                class="fa-solid fa-pen-clip"></i>
+            Vote</a>
         <a href="/reedemcode" class="nav-link"><i class="fa-solid fa-inbox"></i> Reedem Code</a>
     </div>
     <div class="navbar-right">
@@ -47,6 +49,16 @@
                         @if (session()->has('gamertag'))
                             <form action="/logout" method="POST" style="display: inline;">
                                 @csrf
+                                <button>
+                                    <i class="fa-regular fa-user" style="font-size: 14px; color: red"></i>
+                                    <p
+                                        style="
+                      text-decoration: none;
+                      color: rgb(65, 58, 58);
+                      text-transform: uppercase;
+                    ">
+                                        {{ session('gamertag') }}</p>
+                                </button>
                                 <button type="submit"
                                     style="background: none; border: none; color: black; text-transform: uppercase;">
                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
@@ -58,6 +70,7 @@
                                     </svg>
                                     LOGOUT
                                 </button>
+
                             </form>
                         @else
                             <button>

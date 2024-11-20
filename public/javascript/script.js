@@ -85,22 +85,6 @@ window.onclick = function (event) {
     }
 };
 
-// Like button interaction
-// document.querySelectorAll(".like-icon").forEach((icon) => {
-//   icon.addEventListener("click", () => {
-//     let count = icon.nextElementSibling;
-//     let currentCount = parseInt(count.innerText);
-
-//     if (icon.innerText === "❤️") {
-//       icon.innerText = "🤍";
-//       count.innerText = currentCount - 1;
-//     } else {
-//       icon.innerText = "❤️";
-//       count.innerText = currentCount + 1;
-//     }
-//   });
-// });
-
 // player count in server
 async function fetchPlayerCount() {
     try {
@@ -147,3 +131,35 @@ setInterval(showAlert, 300000);
 showAlert();
 
 // Notification End
+
+// button join server function
+document.getElementById("join-server").addEventListener("click", function () {
+    const serverIP = "play.cloudsmp.com"; // Ganti dengan IP server Minecraft Anda
+
+    navigator.clipboard
+        .writeText(serverIP)
+        .then(function () {
+            // Tampilkan notifikasi sukses
+            showNotification("IP server berhasil disalin ke clipboard!");
+        })
+        .catch(function (error) {
+            console.error("Gagal menyalin IP server:", error);
+        });
+});
+
+// Fungsi untuk menampilkan notifikasi
+function showNotification(message) {
+    const notification = document.getElementById("notification");
+    const notificationText = document.getElementById("notification-text");
+
+    notificationText.textContent = message;
+    notification.style.display = "flex";
+
+    // Sembunyikan notifikasi setelah 3 detik
+    setTimeout(closeNotification, 3000);
+}
+
+// Fungsi untuk menutup notifikasi
+function closeNotification() {
+    document.getElementById("notification").style.display = "none";
+}
