@@ -29,7 +29,7 @@ body {
 /* Logo Container */
 .navbar .logo img {
     margin-right: 30px; /* Spasi antara logo dan links */
-    max-width: 70px;
+    max-width: 3em;
 }
 .navbar .logo span {
     color: #f5a425;
@@ -834,7 +834,7 @@ footer {
 }
 
 .footer-logo img {
-    max-width: 100px;
+    max-width: 9em;
 }
 
 .footer-menu ul {
